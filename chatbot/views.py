@@ -9,9 +9,9 @@ from django.utils import timezone
 from django.conf import settings
 
 api_key = settings.OPENAI_API_KEY
+openai.api_key = api_key
 
 
-@login_required
 def ask_openai(message):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-16k",
@@ -27,13 +27,18 @@ def ask_openai(message):
 
 @login_required
 def chatbot(request):
+    current_user = request.user
+    print(current_user)
     chats = Chat.objects.filter(user=request.user)
 
     if request.method == 'POST':
+        print(current_user)
         message = request.POST.get('message')
+        print(message)
+        print(current_user)
         response = ask_openai(message)
-
-        chat = Chat(user=request.user, message=message, response=response, created_at=timezone.now())
+        print(current_user)
+        chat = Chat(user=current_user, message=message, response=response, created_at=timezone.now())
         chat.save()
         return JsonResponse({'message': message, 'response': response})
     return render(request, 'chatbot.html', {'chats': chats})
