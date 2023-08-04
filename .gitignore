@@ -1,0 +1,36 @@
+# Virtual environment
+venv/
+
+# Compiled byte code
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Database files (sqlite3)
+*.sqlite3
+
+# Static and media files (if served locally)
+/static/
+/media/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Development tools
+.idea/
+.vscode/
+
+# Environment variables
+.env
+
+# Other common files to ignore
+*.swp
+*.swo
+*.swn
+*.bak
+*.log
+
+# Django SECRET_KEY
+local_settings.py
