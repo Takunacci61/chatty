@@ -1,15 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 import openai
-
 from django.contrib import auth
 from django.contrib.auth.models import User
 from .models import Chat
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.conf import settings
 
-openai_api_key = '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'
-openai.api_key = openai_api_key
+api_key = settings.OPENAI_API_KEY
 
 
 @login_required
