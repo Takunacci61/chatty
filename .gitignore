@@ -11,7 +11,7 @@ __pycache__/
 *.sqlite3
 
 # Static and media files (if served locally)
-/static/
+
 /media/
 
 # OS generated files
