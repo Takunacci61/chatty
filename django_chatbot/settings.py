@@ -23,7 +23,7 @@ DEBUG = 'True'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-
+# Adding allowed host
 ALLOWED_HOSTS = ['*']
 
 
